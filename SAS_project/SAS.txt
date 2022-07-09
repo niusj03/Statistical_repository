@@ -1,0 +1,31 @@
+Entire: 15976
+   0 baths     1 bath  1.5 baths   10 baths 10.5 baths   11 baths 11.5 baths   12 baths 12.5 baths   13 baths 13.5 baths   14 baths 14.5 baths   15 baths 15.5 baths         19      10967       1415         92         16         44         11         33         12         26          5          9          1          9          1   16 baths 16.5 baths   17 baths 17.5 baths   18 baths   19 baths    2 baths  2.5 baths   20 baths 21.5 baths   23 baths   24 baths    3 baths  3.5 baths    4 baths          6          7          2          1          1          3       1167        134          2          1          1          1        418         60        278  4.5 baths    5 baths  5.5 baths    6 baths  6.5 baths    7 baths  7.5 baths    8 baths  8.5 baths    9 baths  9.5 baths  Half-bath         73        227         55        181         52        132         36        201         35         73         14        155 
+
+No full bathroom: 174
+1 bathroom: 12382
+2 bathroom: 1301
+3 bathroom: 478
+4 or more: 1641
+
+Private: 11204
+
+          0 baths    0 shared baths            1 bath    1 private bath     1 shared bath         1.5 baths  1.5 shared baths          10 baths   10 shared baths                11                32              1572              5261              1950               799               584                24                 5        10.5 baths 10.5 shared baths          11 baths        11.5 baths          12 baths   12 shared baths        12.5 baths          13 baths   13 shared baths                 1                 1                 5                 1                 7                 2                 4                 2                 1        13.5 baths 13.5 shared baths        14.5 baths          15 baths   15 shared baths        15.5 baths          16 baths   16 shared baths        16.5 baths                 2                 1                 1                 2                 2                 1                 2                 1                 1        18.5 baths        19.5 baths           2 baths    2 shared baths         2.5 baths  2.5 shared baths          20 baths          21 baths          22 baths                 1                 1               222               120                17                24                 1                 1                 1           3 baths    3 shared baths         3.5 baths  3.5 shared baths           4 baths    4 shared baths         4.5 baths  4.5 shared baths           5 baths                99                44                 9                 5                33                14                 9                 5                23    5 shared baths         5.5 baths  5.5 shared baths          50 baths           6 baths    6 shared baths         6.5 baths  6.5 shared baths           7 baths                 8                 8                 4                 1                30                 6                 5                 1                13    7 shared baths         7.5 baths  7.5 shared baths           8 baths    8 shared baths         8.5 baths  8.5 shared baths           9 baths    9 shared baths                 5                 5                 2                32                 2                 6                 1                 9                 3         9.5 baths         Half-bath Private half-bath  Shared half-bath                 2                73                22                62 
+
+No full bathroom: 200 
+1 private bathroom: 6060
+1 share bathroom: 4106
+2 bathroom: 383
+3 bathroom: 157
+4 or more: 298
+
+
+
+Shared: 604
+
+  0 shared baths    1 shared bath 1.5 shared baths   2 shared baths 2.5 shared baths   3 shared baths 3.5 shared baths   4 shared baths 4.5 shared baths                5              433               66               55               10               12                2                7                1   5 shared baths   7 shared baths Shared half-bath                4                4                5
+
+No full bathroom: 10
+1 bathroom: 499
+2 bathroom: 65
+3 bathroom: 14
+4 or more: 16
