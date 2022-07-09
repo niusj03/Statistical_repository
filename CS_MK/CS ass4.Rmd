@@ -1,0 +1,87 @@
+---
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 4.8
+
+```{r}
+# R code is as follows
+fun4.8<-function(th0){
+  y<-c(14,0,1,5)
+  a<-b<-1
+  q<-rep(0,y[1]+1)
+  for(k in 1:(y[1]+1)){
+    zk<-k-1
+    q[k]<-dbinom(zk,y[1],th0/(th0+2))/dbeta(th0,a+y[4]+zk,b+y[2]+y[3])
+  }
+  p<-q/sum(q)
+  l<-data.frame(q,p)
+  return(l)
+}
+
+fun4.8(0.8)
+
+```
+
+
+
+# 4.10(a)
+```{r message=FALSE}
+# The R code is as follows:
+
+fun4.10<-function(ind, th0, NumEM){
+# input
+# ind = 1: calculate the posterior mode in (b)
+#     = 2: calculate the convergence rate of the 1-st EM algorithm in (b)
+#     = 3: calculate the posterior mode in (d)
+#     = 4: calculate the convergence rate of the 2-nd EM algorithm in (d)
+# th0    = initial value of \theta, th0 = 0.5
+# NumEM1 = the number of iterations in the 1-th & 2-nd EM 
+  
+# Output
+# TH = approximates of the posterior mode
+# r1 = the convergence rate of the 1-st EM algorithm
+# r2 = the convergence rate of the 2-nd EM algorithm
+  
+  y<-c(125,18,20,34)
+  N<-sum(y)
+  a0<-b0<-1
+  if(ind==0){
+    th<-th0
+    TH<-matrix(0,NumEM,1)
+    for(tt in 1:NumEM){
+      Ez<-y[1]*th/(th+2)
+      a<-a0+b0-2
+      th<-(Ez + y[4]+a0-1)/(Ez+y[2]+y[3]+y[4]+a)
+      TH[tt]<-th
+    }
+    return(TH)
+  }
+  if(ind==2){
+    tth<-0.6268215
+    b<-(N*tth+2*(N-y[1]))^2
+    r1<-abs(2*y[1]*(y[2]+y[3])/b)
+    return(r1)
+  }
+  if(ind==3){
+    th<-th0
+    TH<-matrix(0,NumEM,1)
+    for(tt in 1:NumEM){
+      Ez<-3*y[1*th/(th+2)]
+      th<-(Ez+y[4]+a0-1)/(N=a0+b0-2)
+      TH[tt]<-th
+    }
+    return(TH)
+  }
+  if(ind==4){
+    tth<-0.6268215
+    r2<-abs(6*y[1]/(N*(tth+2)^2))
+    return(r2)
+  }
+  
+}
+```
