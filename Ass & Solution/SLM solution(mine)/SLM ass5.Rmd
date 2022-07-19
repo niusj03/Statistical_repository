@@ -1,0 +1,111 @@
+---
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Problem2
+
+## 2(a)
+```{r}
+# import the data
+address = getwd()
+files = paste(address, "6data.csv", sep = "/")
+data = read.csv(file = files)
+
+# use the multiple linear regression model to fit
+
+fit <- lm(Y~., data = data)
+summary(fit)
+```
+Conduct a hypothesis test for the overall utility of the model
+
+Hypothesis: $H_0:$ $\beta_1=\beta_2=\beta_3=\beta_4=0$ v.s. $H_1:$ at least one $\beta_j\neq0$ for $j=1,2,3,4$
+
+Then under $H_0$, we have 
+$$
+F(\boldsymbol{H})\sim F_{\{q,N-k-1 \}}=F_{\{4,35 \}}
+$$
+
+Then according to the ANOVA table, we have F statistic: 26.84 on 4 and 35 DF,  p-value: 3.088e-10, which is very significant.
+
+We can not reject the $H_0:$ $\beta_1=\beta_2=\beta_3=\beta_4=0$
+And we can conclude that the model is useful for the prediction of rental rates.
+
+## 2(b)
+
+```{r}
+# Studentized residuals
+r1<-rstandard(fit)
+
+# Studentized deleted residuals
+r2<-rstudent(fit)
+
+# Leverage values
+h<-hatvalues(fit)
+
+# Dffits
+dff<-dffits(fit)
+
+# Cook’s distance
+co<-cooks.distance(fit)
+
+# tabulate the results
+table<-data.frame(Studentized=r1,Stud_deleted=r2,Leverage_val=h,Dffits=dff,Cooks_dist=co)
+table
+```
+
+## 2(c)
+Identification criterion:
+
+Using the Studentized residuals, considered a point to be an outlier if absolute value of studentized residual is greater than 2.
+```{r}
+abr1<-abs(r1)
+sort(abr1, decreasing = TRUE)[1:5]
+```
+
+By the table, we have that the 6th, 8th and 9th observations are high leverage points
+
+## 2(d)
+Identification criterion:
+
+The $i$th is an outlier in X point if the leverage value satisfy$h_{ii}\geq 2 \frac{k+1}{n}$
+```{r}
+# note that mean(h)=(k+1)/n
+sort(h, decreasing=TRUE)[1:5]/mean(h)
+```
+
+By the table, we have that the 3th and 8th observations are high leverage points
+
+## 2(e)
+Consider the Dffits:
+
+The $i$th is a influential observation if $|diffits_{i}|\geq 2\sqrt{\frac{k+1}{n}}$
+
+```{r}
+# note that mean(h)=(k+1)/n
+f<-sqrt(mean(h))
+abdff<-abs(dff)
+sort(abdff, decreasing = TRUE)[1:6]/f
+
+```
+
+By the table, we have that the 6th, 8th, 9th, 26th and 38th are observations are influential points
+
+Consider the Cook's distance:
+
+The $i$th is a influential if its Cook's distance is larger than $F_{\{0.05,k+1,n-(k+1)\} }=F_{\{0.05,5,35\} }$
+
+```{r}
+g<-qf(0.5,5,35)
+g
+sort(co, decreasing = TRUE)[1:5]-g
+```
+
+
+By the table, we have that the 8th observation are influential point
+
+
+
